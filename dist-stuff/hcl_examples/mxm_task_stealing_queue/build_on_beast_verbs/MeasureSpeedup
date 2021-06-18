@@ -1,8 +1,8 @@
 mpirun -n 5 -ppn 2 --host 10.12.1.1,10.12.1.2 ./main 2400 2 5
-mpirun -n 13 -ppn 6 --host 10.12.1.1,10.12.1.2 ./main 2400 2 5 3
-mpirun -n 21 -ppn 10 --host 10.12.1.1,10.12.1.2 ./main 2400 2 5 3
-mpirun -n 29 -ppn 14 --host 10.12.1.1,10.12.1.2 ./main 2400 2 5 3
-mpirun -n 37 -ppn 18 --host 10.12.1.1,10.12.1.2 ./main 2400 2 5 3 
-mpirun -n 45 -ppn 22 --host 10.12.1.1,10.12.1.2 ./main 2400 2 5 3 
-mpirun -n 53 -ppn 26 --host 10.12.1.1,10.12.1.2 ./main 2400 2 5 3 
-mpirun -n 61 -ppn 30 --host 10.12.1.1,10.12.1.2 ./main 2400 2 5 3
+mpirun -n 13 -ppn 6 --host 10.12.1.1,10.12.1.2 ./main 2400 2 5
+mpirun -n 21 -ppn 10 --host 10.12.1.1,10.12.1.2 ./main 2400 2 5
+mpirun -n 29 -ppn 14 --host 10.12.1.1,10.12.1.2 ./main 2400 2 5
+mpirun -n 37 -ppn 18 --host 10.12.1.1,10.12.1.2 ./main 2400 2 5
+mpirun -n 45 -ppn 22 --host 10.12.1.1,10.12.1.2 ./main 2400 2 5
+mpirun -n 53 -ppn 26 --host 10.12.1.1,10.12.1.2 ./main 2400 2 5
+mpirun -n 61 -ppn 30 --host 10.12.1.1,10.12.1.2 ./main 2400 2 5
