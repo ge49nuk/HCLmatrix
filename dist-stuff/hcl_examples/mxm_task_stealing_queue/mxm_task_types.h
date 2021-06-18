@@ -21,7 +21,7 @@
 #include <cereal/types/array.hpp>
 
 namespace bip=boost::interprocess;
-const int SIZE = 128;
+const int SIZE = 256;
 
 // ================================================================================
 // Util-functions

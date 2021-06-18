@@ -1,0 +1,1 @@
+/home/ge49nuk2/spack/opt/spack/linux-sles15-zen2/gcc-10.2.1/mpich-3.3.2-wgukgvfenyfgh75zdxi6lvgzsan7ozv2/bin/mpicxx  -gdwarf-2 -g3 -DHCL_ENABLE_THALLIUM_TCP CMakeFiles/main.dir/main.cpp.o -o main  -lthallium -lmercury -lmercury_util -lmargo -labt -lmpicxx -lpthread -lrt -lhcl 
