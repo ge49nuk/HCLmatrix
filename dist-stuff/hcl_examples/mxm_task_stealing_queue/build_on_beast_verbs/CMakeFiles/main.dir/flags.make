@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = 
 
-CXX_FLAGS =  -gdwarf-2 -g3 -DHCL_ENABLE_THALLIUM_ROCE -DPARALLEL_OMP -g -O2 -Wall -Wextra -fopenmp -std=gnu++17
+CXX_FLAGS =  -gdwarf-2 -g3 -DHCL_ENABLE_THALLIUM_ROCE -g -O0 -Wall -Wextra -std=gnu++17
 
