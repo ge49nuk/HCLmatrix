@@ -1,6 +1,6 @@
 module use ~/localLibs/myModules
 module use ~/spack/share/spack/lmod/linux-sles15-zen2
-module load mpich-3.3.2-gcc-10.2.1-ooqbcd3
+module load intel-mpi-2019.10.317-gcc-10.2.1-n23qoov
 module load hwloc-2.4.1-gcc-10.2.1-bu232a3
 module load cmake-3.20.3-gcc-10.2.1-crj7py7
 module load argobots-1.1-gcc-10.2.1-jlfvqv6
@@ -12,8 +12,4 @@ module load mochi-abt-io-0.5.1-gcc-10.2.1-cvewwn6
 module load mochi-margo-0.9.4-gcc-10.2.1-wi5xj2h
 module load mochi-thallium-0.7-gcc-10.2.1-mct2gwt
 module load hclROCE
-export OMP_PROC_BIND=true
-export OMP_PLACES=cores
-unset KMP_AFFINITY
-export I_MPI_PIN_DOMAIN=auto
-export I_MPI_PIN=1
+

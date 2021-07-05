@@ -1,0 +1,31 @@
+1 Rank\n
+SETUP: 3 ranks, 2400 tasks, 150 matrixSize, 3 iterations
+Inter-Node Execution Time: 23.694059
+Local Execution Time: 56.424105
+Speedup: 2.381361
+2 Ranks
+SETUP: 5 ranks, 2400 tasks, 150 matrixSize, 3 iterations
+[mpiexec@rome1] Sending Ctrl-C to processes as requested
+[mpiexec@rome1] Press Ctrl-C again to force abort
+Ctrl-C caught... cleaning up processes
+6 Ranks
+[mpiexec@rome1] Sending Ctrl-C to processes as requested
+[mpiexec@rome1] Press Ctrl-C again to force abort
+10 Ranks
+[mpiexec@rome1] Sending Ctrl-C to processes as requested
+[mpiexec@rome1] Press Ctrl-C again to force abort
+14 Ranks
+[mpiexec@rome1] Sending Ctrl-C to processes as requested
+[mpiexec@rome1] Press Ctrl-C again to force abort
+18 Ranks
+[mpiexec@rome1] Sending Ctrl-C to processes as requested
+[mpiexec@rome1] Press Ctrl-C again to force abort
+22 Ranks
+[mpiexec@rome1] Sending Ctrl-C to processes as requested
+[mpiexec@rome1] Press Ctrl-C again to force abort
+26 Ranks
+[mpiexec@rome1] Sending Ctrl-C to processes as requested
+[mpiexec@rome1] Press Ctrl-C again to force abort
+30 Ranks
+[mpiexec@rome1] Sending Ctrl-C to processes as requested
+[mpiexec@rome1] Press Ctrl-C again to force abort

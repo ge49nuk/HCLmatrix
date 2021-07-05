@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = 
 
-CXX_FLAGS =  -gdwarf-2 -g3 -DHCL_ENABLE_THALLIUM_ROCE -g -O0 -Wall -Wextra -std=gnu++17
+CXX_FLAGS =  -DHCL_ENABLE_THALLIUM_ROCE -O0 -std=gnu++17
 
