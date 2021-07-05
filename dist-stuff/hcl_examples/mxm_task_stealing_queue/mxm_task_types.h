@@ -21,7 +21,7 @@
 #include <cereal/types/array.hpp>
 
 namespace bip=boost::interprocess;
-const int SIZE = 256;
+const int SIZE = 150;
 
 // ================================================================================
 // Util-functions
@@ -35,79 +35,22 @@ const int SIZE = 256;
 /* Struct of a matrix-tuple type using std::array */
 typedef struct MatTask_Type {
     int tid;
-    std::vector<double> A;
-    std::vector<double> B;
-    std::vector<double> C;
+    double A[SIZE*SIZE];
+    double B[SIZE*SIZE];
 
     // constructor 1
-    MatTask_Type(): tid(0), A(), B(), C() {}
+    MatTask_Type(): tid(0), A(), B() {}
 
     // constructor 2, init matrices with identical values
     MatTask_Type(int id, int val):
-            tid(id),
-            A(SIZE * SIZE, val),
-            B(SIZE * SIZE, val),
-            C(SIZE * SIZE, val) { }
+            tid(id){}
 
     // constructor 3, init matrices with random values
     // TODO
-    
-    // overwrite operators
-    bool operator==(const MatTask_Type &o) const {
-        if (o.tid != tid) return false;
-        if (o.A.size() != A.size()) return false;
-        if (o.B.size() != B.size()) return false;
-        if (o.C.size() != C.size()) return false;
-        
-        for (int i = 0; i < SIZE*SIZE; ++i) {
-            if (o.A[i] != A[i]) return false;
-            if (o.B[i] != B[i]) return false;
-            if (o.C[i] != C[i]) return false;
-        }
-
-        return true;
-    }
-
-    MatTask_Type &operator=(const MatTask_Type &other){
-        tid = other.tid;
-        A = other.A;
-        B = other.B;
-        C = other.C;
-        return *this;
-    }
-
-    bool operator<(const MatTask_Type &o) const {
-
-        if (o.A.size() < A.size()) return false;
-        if (o.A.size() > A.size()) return true;
-        if (o.B.size() < B.size()) return false;
-        if (o.B.size() > B.size()) return true;
-        if (o.C.size() < C.size()) return false;
-        if (o.C.size() > C.size()) return true;
-        
-        for (int i = 0; i < SIZE*SIZE; ++i) {
-            if (o.A[i] < A[i]) return false;
-            if (o.A[i] > A[i]) return true;
-            if (o.B[i] < B[i]) return false;
-            if (o.B[i] > B[i]) return true;
-            if (o.C[i] < C[i]) return false;
-            if (o.C[i] > C[i]) return true;
-        }
-
-        return false;
-    }
- 
-    bool operator>(const MatTask_Type &o) const {
-        return !(*this < o);
-    }
- 
-    bool Contains(const MatTask_Type &o) const {
-        return *this == o;
-    }
 
     // serialization for using rpc lib
 #ifdef HCL_ENABLE_RPCLIB
-    MSGPACK_DEFINE(A,B,C);
+    MSGPACK_DEFINE(A,B);
 #endif
 
 } MatTask_Type;
@@ -119,23 +62,43 @@ typedef struct MatTask_Type {
         ar & a.tid;
         ar & a.A;
         ar & a.B;
-        ar & a.C;
     }
 #endif
 
-namespace std {
-    template<>
-    struct hash<MatTask_Type> {
-        size_t operator()(const MatTask_Type &k) const {
-            size_t hash_val = hash<int>()(k.A[0]);
 
-            for (int i = 1; i < k.A.size(); ++i) {
-                hash_val ^= hash<int>()(k.A[0]);
-            }
 
-            return hash_val;
-        }
-    };
-}
+typedef struct MatResult_Type {
+    int tid;
+    double A[SIZE*SIZE];
+
+    // constructor 1
+    MatResult_Type(): tid(0), A() {}
+
+    // constructor 2, init matrices with identical values
+    MatResult_Type(int id, int val):
+            tid(id){ }
+
+    // constructor 3, init matrices with random values
+    // TODO
+    
+    
+
+    // serialization for using rpc lib
+#ifdef HCL_ENABLE_RPCLIB
+    MSGPACK_DEFINE(A);
+#endif
+
+} MatResult_Type;
+
+// serialization like thallium does
+#if defined(HCL_ENABLE_THALLIUM_TCP) || defined(HCL_ENABLE_THALLIUM_ROCE)
+    template<typename A>
+    void serialize(A &ar, MatResult_Type &a) {
+        ar & a.tid;
+        ar & a.A;
+    }
+#endif
+
+
 
 #endif //MAT_TASK_TYPE_H
